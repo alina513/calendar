@@ -1,35 +1,60 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import Calendar from "./components/Calendar/Calendar";
+import { getPublicHolidays } from "./api/api";
+import { AppWrapper } from "./components/AppWrapper.styled";
+import { CountrySelect } from "./components/CountrySelect/CountrySelelect";
+import { MonthSelector } from "./components/MonthSelector/MonthSelector";
+import { YearSelector } from "./components/YearSelector/YearSelector";
 
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React + AlinaR</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+interface Holiday {
+  [key: string]: string;
 }
 
-export default App
+const App = () => {
+  const currentYear = new Date().getFullYear();
+  const [holidays, setHolidays] = useState<Holiday>({});
+  const [countryCode, setCountryCode] = useState<string>("US");
+  const [selectedMonth, setSelectedMonth] = useState<number>(
+    new Date().getMonth()
+  );
+  const [year, setYear] = useState<number>(currentYear);
+
+  useEffect(() => {
+    const fetchHolidays = async () => {
+      const data = await getPublicHolidays(year, countryCode);
+      const holidaysMap: Holiday = {};
+      data.forEach((holiday: { date: string; localName: string }) => {
+        holidaysMap[holiday.date] = holiday.localName;
+      });
+      setHolidays(holidaysMap);
+    };
+    fetchHolidays();
+  }, [countryCode, year]);
+
+  const handleCountryChange = (countryCode: string) => {
+    setCountryCode(countryCode);
+  };
+
+  const handleMonthChange = (month: number) => {
+    setSelectedMonth(month);
+  };
+
+  const handleYearChange = (year: number) => {
+    setYear(year);
+  };
+
+  return (
+    <AppWrapper>
+      <h1>Calendar {year}</h1>
+      <CountrySelect onCountryChange={handleCountryChange} />
+      <YearSelector selectedYear={year} onYearChange={handleYearChange} />
+      <MonthSelector
+        selectedMonth={selectedMonth}
+        onMonthChange={handleMonthChange}
+      />
+      <Calendar year={year} holidays={holidays} selectedMonth={selectedMonth} />
+    </AppWrapper>
+  );
+};
+
+export default App;
