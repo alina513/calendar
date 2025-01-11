@@ -1,5 +1,6 @@
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import { Task } from "./SortableTask.styled";
 
 export const SortableTask: React.FC<{
   id: string;
@@ -21,11 +22,7 @@ export const SortableTask: React.FC<{
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    marginBottom: "5px",
-    padding: "10px",
-    background: isHighlighted ? "#ffffa5" : "#e3e3e3",
-    borderRadius: "4px",
-    cursor: "grab",
+    background: isHighlighted ? "#ffffa5" : "#fff",
     boxShadow: transform ? "0 4px 8px rgba(0, 0, 0, 0.2)" : "none", 
     zIndex: transform ? 1000 : "auto", 
   };
@@ -37,7 +34,7 @@ export const SortableTask: React.FC<{
   };
 
   return (
-    <div
+    <Task
       ref={setNodeRef}
       style={style}
       onDoubleClick={onDoubleClick}
@@ -46,6 +43,6 @@ export const SortableTask: React.FC<{
       {...listeners}
     >
       {taskText}
-    </div>
+    </Task>
   );
 };

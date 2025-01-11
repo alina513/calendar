@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const CalendarGrid = styled.div`
   display: grid;
@@ -12,6 +12,6 @@ export const FilterInput = styled.input`
   padding: 10px;
   margin-bottom: 20px;
   font-size: 16px;
-  border: 1px solid #ccc;
+  border: 3px solid #d9c76c;
   border-radius: 5px;
 `;

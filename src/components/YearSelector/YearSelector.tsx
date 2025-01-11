@@ -1,4 +1,5 @@
 import React from "react";
+import { Select } from "../CountrySelect/CountrySelect.styled";
 
 interface YearSelectorProps {
   selectedYear: number;
@@ -16,9 +17,7 @@ export const YearSelector: React.FC<YearSelectorProps> = ({
   );
 
   return (
-    <div>
-      <label htmlFor="year-select">Оберіть рік:</label>
-      <select
+      <Select
         id="year-select"
         value={selectedYear}
         onChange={(e) => onYearChange(Number(e.target.value))}
@@ -28,7 +27,6 @@ export const YearSelector: React.FC<YearSelectorProps> = ({
             {year}
           </option>
         ))}
-      </select>
-    </div>
+      </Select>
   );
 };

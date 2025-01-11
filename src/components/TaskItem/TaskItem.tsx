@@ -1,5 +1,6 @@
 import React from "react";
 import { SortableTask } from "../SortableTask/SortableTask";
+import {Wrapper, EditInput} from "./TaskItem.styled"
 import { HiArchiveBoxXMark } from "react-icons/hi2";
 
 interface TaskItemProps {
@@ -32,9 +33,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({
   };
 
   return (
-    <div style={{ display: "flex", alignItems: "center" }}>
+    <Wrapper>
       {isEditing ? (
-        <input
+        <EditInput
           type="text"
           value={editText}
           onChange={(e) => setEditText(e.target.value)}
@@ -54,9 +55,9 @@ export const TaskItem: React.FC<TaskItemProps> = ({
           onDoubleClick={() => setIsEditing(true)}
         />
       )}
-      <button onClick={onDelete} style={{ marginLeft: "10px" }}>
-        <HiArchiveBoxXMark width={15}/>
+      <button onClick={onDelete}>
+        <HiArchiveBoxXMark />
       </button>
-    </div>
+    </Wrapper>
   );
 };

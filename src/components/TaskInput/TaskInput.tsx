@@ -1,4 +1,5 @@
 import React from "react";
+import { AddTask } from "./TaskInput.styled";
 
 interface TaskInputProps {
   value: string;
@@ -21,11 +22,11 @@ export const TaskInput: React.FC<TaskInputProps> = ({
   };
 
   return (
-    <input
+    <AddTask
       ref={inputRef}
       type="text"
       value={value}
-      placeholder="Додати завдання"
+      placeholder="Add task"
       onChange={(e) => onChange(e.target.value)}
       onKeyDown={handleKeyDown}
     />

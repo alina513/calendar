@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
-import Calendar from "./components/Calendar/Calendar";
+import { Calendar } from "./components/Calendar/Calendar";
 import { getPublicHolidays } from "./api/api";
 import { AppWrapper } from "./components/AppWrapper.styled";
-import { CountrySelect } from "./components/CountrySelect/CountrySelelect";
-import { MonthSelector } from "./components/MonthSelector/MonthSelector";
-import { YearSelector } from "./components/YearSelector/YearSelector";
+import { Header } from "./components/Header/Header";
+import { months } from "./constants/months";
 
 interface Holiday {
   [key: string]: string;
@@ -44,16 +43,25 @@ const App = () => {
   };
 
   return (
-    <AppWrapper>
-      <h1>Calendar {year}</h1>
-      <CountrySelect onCountryChange={handleCountryChange} />
-      <YearSelector selectedYear={year} onYearChange={handleYearChange} />
-      <MonthSelector
+    <>
+      <Header
+        selectedYear={year}
+        onYearChange={handleYearChange}
         selectedMonth={selectedMonth}
         onMonthChange={handleMonthChange}
+        onCountryChange={handleCountryChange}
       />
-      <Calendar year={year} holidays={holidays} selectedMonth={selectedMonth} />
-    </AppWrapper>
+      <AppWrapper>
+        <h1>
+          {months[selectedMonth]} {year}
+        </h1>
+        <Calendar
+          year={year}
+          holidays={holidays}
+          selectedMonth={selectedMonth}
+        />
+      </AppWrapper>
+    </>
   );
 };
 

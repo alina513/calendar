@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAvailableCountries } from "../../api/api";
+import { Select } from "./CountrySelect.styled";
 
 interface Country {
   countryCode: string;
@@ -31,9 +32,7 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
   };
 
   return (
-    <div>
-      <label htmlFor="countryCode">Обрати країну: </label>
-      <select
+      <Select
         id="countryCode"
         value={selectedCountry}
         onChange={handleCountryChange}
@@ -43,7 +42,6 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
             {country.name}
           </option>
         ))}
-      </select>
-    </div>
+      </Select>
   );
 };

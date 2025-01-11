@@ -18,7 +18,7 @@ interface Task {
   task: string;
 }
 
-const Calendar: React.FC<CalendarProps> = ({
+export const Calendar: React.FC<CalendarProps> = ({
   year,
   selectedMonth,
   holidays,
@@ -37,7 +37,6 @@ const Calendar: React.FC<CalendarProps> = ({
   );
   const [filterText, setFilterText] = useState<string>("");
 
-  
   useEffect(() => {
     localStorage.setItem(localStorageKey, JSON.stringify(tasks));
   }, [tasks, localStorageKey]);
@@ -120,4 +119,4 @@ const Calendar: React.FC<CalendarProps> = ({
   );
 };
 
-export default Calendar;
+
