@@ -6,7 +6,7 @@ import {
   SortableContext,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
-import DayCell from "../DayCell/DayCell";
+import { DayCell } from "../DayCell/DayCell";
 
 interface CalendarProps {
   year: number;
@@ -118,5 +118,3 @@ export const Calendar: React.FC<CalendarProps> = ({
     </>
   );
 };
-
-

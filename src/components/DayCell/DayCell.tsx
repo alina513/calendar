@@ -1,6 +1,6 @@
 import React from "react";
 import { useDroppable } from "@dnd-kit/core";
-import {  Wrapper, Holiday, DayNumber } from "./DayCell.styled";
+import { Wrapper, Holiday, DayNumber } from "./DayCell.styled";
 import { TaskItem } from "../TaskItem/TaskItem";
 import { TaskInput } from "../TaskInput/TaskInput";
 import { nanoid } from "nanoid";
@@ -18,7 +18,7 @@ interface DayCellProps {
   setTasks: (tasks: Task[]) => void;
 }
 
-const DayCell: React.FC<DayCellProps> = ({
+export const DayCell: React.FC<DayCellProps> = ({
   date,
   dayNumber,
   holiday,
@@ -53,7 +53,8 @@ const DayCell: React.FC<DayCellProps> = ({
       {holiday && <Holiday>{holiday}</Holiday>}
       {tasks.map((task, index) => {
         const isHighlighted =
-          !!filterText && task.task.toLowerCase().includes(filterText.toLowerCase());
+          !!filterText &&
+          task.task.toLowerCase().includes(filterText.toLowerCase());
 
         return (
           <TaskItem
@@ -69,14 +70,8 @@ const DayCell: React.FC<DayCellProps> = ({
         );
       })}
       {date && (
-        <TaskInput
-          value={newTask}
-          onChange={setNewTask}
-          onAdd={addTask}
-        />
+        <TaskInput value={newTask} onChange={setNewTask} onAdd={addTask} />
       )}
     </Wrapper>
   );
 };
-
-export default DayCell;

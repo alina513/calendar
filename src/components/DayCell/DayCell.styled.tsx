@@ -5,7 +5,8 @@ export const Wrapper = styled.div`
   border-radius: 5px;
   background-color: #e3e3e3;
   padding: 10px;
-  min-height: 100px;
+  min-height: 120px;
+  overflow: hidden;
   position: relative;
 `;
 
@@ -21,4 +22,3 @@ export const Holiday = styled.div`
   color: red;
   margin-bottom: 5px;
 `;
-

@@ -23,8 +23,8 @@ export const SortableTask: React.FC<{
     transform: CSS.Transform.toString(transform),
     transition,
     background: isHighlighted ? "#ffffa5" : "#fff",
-    boxShadow: transform ? "0 4px 8px rgba(0, 0, 0, 0.2)" : "none", 
-    zIndex: transform ? 1000 : "auto", 
+    boxShadow: transform ? "0 4px 8px rgba(0, 0, 0, 0.2)" : "none",
+    zIndex: transform ? 1000 : "auto",
   };
 
   const handlePointerDown = (e: React.PointerEvent) => {

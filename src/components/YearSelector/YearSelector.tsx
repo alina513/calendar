@@ -11,22 +11,19 @@ export const YearSelector: React.FC<YearSelectorProps> = ({
   onYearChange,
 }) => {
   const currentYear = new Date().getFullYear();
-  const years = Array.from(
-    { length: 26 }, 
-    (_, i) => currentYear - 20 + i
-  );
+  const years = Array.from({ length: 26 }, (_, i) => currentYear - 20 + i);
 
   return (
-      <Select
-        id="year-select"
-        value={selectedYear}
-        onChange={(e) => onYearChange(Number(e.target.value))}
-      >
-        {years.map((year) => (
-          <option key={year} value={year}>
-            {year}
-          </option>
-        ))}
-      </Select>
+    <Select
+      id="year-select"
+      value={selectedYear}
+      onChange={(e) => onYearChange(Number(e.target.value))}
+    >
+      {years.map((year) => (
+        <option key={year} value={year}>
+          {year}
+        </option>
+      ))}
+    </Select>
   );
 };

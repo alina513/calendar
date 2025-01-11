@@ -1,6 +1,6 @@
 import React from "react";
 import { SortableTask } from "../SortableTask/SortableTask";
-import {Wrapper, EditInput} from "./TaskItem.styled"
+import { Wrapper, EditInput } from "./TaskItem.styled";
 import { HiArchiveBoxXMark } from "react-icons/hi2";
 
 interface TaskItemProps {

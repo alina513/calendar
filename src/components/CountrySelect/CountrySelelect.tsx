@@ -19,8 +19,8 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
 
   useEffect(() => {
     const fetchCountries = async () => {
-        const response = await getAvailableCountries();
-        setCountries(response);
+      const response = await getAvailableCountries();
+      setCountries(response);
     };
     fetchCountries();
   }, [onCountryChange]);
@@ -32,16 +32,16 @@ export const CountrySelect: React.FC<CountrySelectProps> = ({
   };
 
   return (
-      <Select
-        id="countryCode"
-        value={selectedCountry}
-        onChange={handleCountryChange}
-      >
-        {countries.map((country) => (
-          <option key={country.countryCode} value={country.countryCode}>
-            {country.name}
-          </option>
-        ))}
-      </Select>
+    <Select
+      id="countryCode"
+      value={selectedCountry}
+      onChange={handleCountryChange}
+    >
+      {countries.map((country) => (
+        <option key={country.countryCode} value={country.countryCode}>
+          {country.name}
+        </option>
+      ))}
+    </Select>
   );
 };

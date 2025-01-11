@@ -19,12 +19,14 @@ export const Header: React.FC<HeaderProps> = ({
   onMonthChange,
   onCountryChange,
 }) => {
-  return <Wrapper>
-    <CountrySelect onCountryChange={onCountryChange} />
+  return (
+    <Wrapper>
+      <CountrySelect onCountryChange={onCountryChange} />
       <YearSelector selectedYear={selectedYear} onYearChange={onYearChange} />
       <MonthSelector
         selectedMonth={selectedMonth}
         onMonthChange={onMonthChange}
       />
-  </Wrapper>;
+    </Wrapper>
+  );
 };
