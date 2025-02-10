@@ -26,7 +26,7 @@ export const TaskInput: React.FC<TaskInputProps> = ({
       ref={inputRef}
       type="text"
       value={value}
-      placeholder="Add task"
+      placeholder="Add task and push Enter"
       onChange={(e) => onChange(e.target.value)}
       onKeyDown={handleKeyDown}
     />
