@@ -23,8 +23,8 @@ export const Header: React.FC<HeaderProps> = ({
   return (
     <Wrapper>
       <BackgroundAnimation>
-        <Animation/>
-        </BackgroundAnimation>
+        <Animation />
+      </BackgroundAnimation>
       <CountrySelect onCountryChange={onCountryChange} />
       <YearSelector selectedYear={selectedYear} onYearChange={onYearChange} />
       <MonthSelector
