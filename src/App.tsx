@@ -4,6 +4,7 @@ import { getPublicHolidays } from "./api/api";
 import { AppWrapper } from "./components/AppWrapper.styled";
 import { Header } from "./components/Header/Header";
 import { months } from "./constants/months";
+import ScrollVelocity from "./TextAnimations/ScrollVelocity/ScrollVelocity";
 
 interface Holiday {
   [key: string]: string;
@@ -52,9 +53,10 @@ const App = () => {
         onCountryChange={handleCountryChange}
       />
       <AppWrapper>
-        <h1>
-          {months[selectedMonth]} {year}
-        </h1>
+        <ScrollVelocity
+  texts={[`${months[selectedMonth]} ${year}`, `${months[selectedMonth]} ${year}`]}   
+ className="custom-scroll-text"
+/>
         <Calendar
           year={year}
           holidays={holidays}

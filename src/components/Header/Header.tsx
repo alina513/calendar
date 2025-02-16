@@ -1,8 +1,9 @@
-import { Wrapper } from "./Header.styled";
+import { Wrapper, BackgroundAnimation } from "./Header.styled";
 import React from "react";
 import { CountrySelect } from "../CountrySelect/CountrySelelect";
 import { MonthSelector } from "../MonthSelector/MonthSelector";
 import { YearSelector } from "../YearSelector/YearSelector";
+import { Animation } from "../Animation/Animation";
 
 interface HeaderProps {
   selectedYear: number;
@@ -21,6 +22,9 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   return (
     <Wrapper>
+      <BackgroundAnimation>
+        <Animation/>
+        </BackgroundAnimation>
       <CountrySelect onCountryChange={onCountryChange} />
       <YearSelector selectedYear={selectedYear} onYearChange={onYearChange} />
       <MonthSelector
