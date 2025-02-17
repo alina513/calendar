@@ -154,7 +154,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
       <div className={parallaxClassName} style={parallaxStyle}>
         <motion.div
           className={scrollerClassName}
-          style={{ x, ...scrollerStyle }}
+          style={{ x, color: "#7f7134", ...scrollerStyle }}
         >
           {spans}
         </motion.div>

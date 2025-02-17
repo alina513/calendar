@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getAvailableCountries } from "../../api/api";
-import { Select } from "./CountrySelect.styled";
+import { Select} from "./CountrySelect.styled";
 
 interface Country {
   countryCode: string;

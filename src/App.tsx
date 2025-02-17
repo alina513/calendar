@@ -54,9 +54,12 @@ const App = () => {
       />
       <AppWrapper>
         <ScrollVelocity
-  texts={[`${months[selectedMonth]} ${year}`, `${months[selectedMonth]} ${year}`]}   
- className="custom-scroll-text"
-/>
+          texts={[
+            `${months[selectedMonth]} ${year}`,
+            `${months[selectedMonth]} ${year}`,
+          ]}
+          className="custom-scroll-text"
+        />
         <Calendar
           year={year}
           holidays={holidays}
