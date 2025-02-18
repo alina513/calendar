@@ -12,13 +12,16 @@ export const Wrapper = styled.div`
 
 export const DayNumber = styled.div`
   font-size: 14px;
-  font-weight: bold;
+  font-family: "SecondFont", san-serif;
+  font-weight: 700;
   margin-bottom: 5px;
-  color: #333;
+  color: #7f7134;
 `;
 
 export const Holiday = styled.div`
+  font-family: "SecondFont", san-serif;
+  font-weight: 700;
   font-size: 12px;
-  color: red;
+  color: #992600;
   margin-bottom: 5px;
 `;

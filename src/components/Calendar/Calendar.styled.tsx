@@ -16,3 +16,9 @@ export const FilterInput = styled.input`
   border: 3px solid #d9c76c;
   border-radius: 5px;
 `;
+
+export const Text = styled.p`
+  font-family: "SecondFont", san-serif;
+  font-weight: 400;
+  color: #7f7134;
+`;

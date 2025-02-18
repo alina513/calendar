@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { CalendarGrid, FilterInput } from "./Calendar.styled";
+import { CalendarGrid, FilterInput, Text } from "./Calendar.styled";
 import { DndContext, closestCenter, DragEndEvent } from "@dnd-kit/core";
 import {
   arrayMove,
@@ -79,7 +79,7 @@ export const Calendar: React.FC<CalendarProps> = ({
       const date = `${year}-${(selectedMonth + 1)
         .toString()
         .padStart(2, "0")}-${day.toString().padStart(2, "0")}`;
-      if (!tasks[date]) tasks[date] = []; // Ініціалізуємо порожні дні
+      if (!tasks[date]) tasks[date] = [];
       dates.push({ date, dayNumber: day });
     }
     return dates;
@@ -90,9 +90,14 @@ export const Calendar: React.FC<CalendarProps> = ({
       <FilterInput
         type="text"
         value={filterText}
-        placeholder="Пошук завдань..."
+        placeholder="Find task..."
         onChange={(e) => setFilterText(e.target.value)}
       />
+      <Text>
+        Write a task and press Enter. You can move tasks to another day or
+        reorder them within the same day by hovering over them and holding. You
+        can edit a task by double-clicking on it.
+      </Text>
       <DndContext collisionDetection={closestCenter} onDragEnd={onDragEnd}>
         <CalendarGrid>
           {generateDates().map(({ date, dayNumber }, index) => (

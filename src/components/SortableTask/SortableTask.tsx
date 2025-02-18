@@ -22,7 +22,7 @@ export const SortableTask: React.FC<{
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    background: isHighlighted ? "#ffffa5" : "#fff",
+    background: isHighlighted ? "#ff9f80" : "#f7f3df",
     boxShadow: transform ? "0 4px 8px rgba(0, 0, 0, 0.2)" : "none",
     zIndex: transform ? 1000 : "auto",
   };
