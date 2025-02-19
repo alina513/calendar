@@ -9,4 +9,7 @@ export const AddTask = styled.input`
   border-radius: 4px;
   border: none;
   font-size: inherit;
+  &::placeholder {
+    font-size: 14px;
+  }
 `;
