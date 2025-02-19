@@ -7,6 +7,7 @@ interface TaskInputProps {
   onAdd: () => void;
 }
 
+
 export const TaskInput: React.FC<TaskInputProps> = ({
   value,
   onChange,
